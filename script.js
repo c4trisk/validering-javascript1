@@ -52,18 +52,6 @@ const validatePassword = (id) => {
 }
 
 
-const validateRepeatPassword = (id) => {
-    const input = document.querySelector(id)
-    
-    if(input.value.length < 6) {
-        console.log(id + ': Lösenordet måste vara minst 6 tecken')
-        return false
-    }
-
-    return true
-}
-
-
 const validateCheckbox = (id) => {
 
     const check = document.querySelector(id)
@@ -101,9 +89,10 @@ form.addEventListener('submit', e => {
                 user[form[i].id] = form[i].value
 
             } else {
-                errors[i] = validateRepeatPassword(inputId)
+                errors[i] = validatePassword(inputId)
                 if(form[i-1].value !== form[i].value) {
                     console.log(form[i].id + ': Lösenorden matchar inte varandra')
+                    form[i].value = ''
                     errorMessage.classList.remove('d-none')
                     return false
                 }
