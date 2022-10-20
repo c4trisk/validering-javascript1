@@ -47,15 +47,16 @@ const validatePassword = (id) => {
         console.log(id + ': Lösenordet måste vara minst 6 tecken')
         return false
     }
-
+    
     return true
 }
 
 
 const validateRepeatPassword = (id) => {
     const input = document.querySelector(id)
-
+    
     if(input.value.length < 6) {
+        console.log(id + ': Lösenordet måste vara minst 6 tecken')
         return false
     }
 
@@ -120,7 +121,6 @@ form.addEventListener('submit', e => {
         errorMessage.classList.add('d-none')
         console.log('SUCCESS') 
         console.log(user)
-        form.reset()
     }
 
 })
